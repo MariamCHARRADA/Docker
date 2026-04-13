@@ -1,10 +1,6 @@
-# Use the official Nginx image based on Alpine Linux (lightweight)
-FROM nginx:alpine
+FROM httpd:2.4
 
-# Copy all files from the current directory (on your host)
-# into the default Nginx web root inside the container
-COPY . /usr/share/nginx/html
+# Copy your website files into Apache's public folder
+COPY . /usr/local/apache2/htdocs/
 
-# Inform Docker that the container will listen on port 80 (HTTP)
-# Note: this does not actually publish the port, just documents it
 EXPOSE 80
